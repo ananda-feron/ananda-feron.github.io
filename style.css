@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: #141414;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav{    /*nav bar*/
+    background-color: black;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    height: 50px;
+}
+
+nav ul{     /*container*/
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li{     /*links*/
+    height: 50px;
+}
+
+nav a{      /*anchor text*/
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: rgb(255, 255, 255);
+}
+
+nav a:hover{    /*visualfeedback*/
+    background-color: #141414;
+}
+
+nav li:first-child{     /*first logo on the left*/
+    margin-right: auto;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 200px;
+    z-index: 999;
+    background-color: black; /*blur*/
+    backdrop-filter: blue(30px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li{
+    width: 100%;
+}
+
+.sidebar a{
+    width: 100%;
+}
+
+
+/* HIDE SIDEBAR ON LARGE SCREENS NOT WORKING */
+.menu-button{
+    display: none;
+}
+
+@media(max-width: 800px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+}
+@media(max-width: 400px){
+    .sidebar{
+        display: 100%;
+    }
+}
+
+section {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+#canvas1{
+    position: absolute;
+    top: 0; left:0;
+    height: 100%; width: 100%; 
+    background: radial-gradient(green, yellow);
+    z-index: -1;
+}
+.home{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: white;
+}
+.home-info h1{
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+.home-info h2{
+    font-size: 32px;
+    margin-top: -10px;
+}
+.home-info p{
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+.home-info .btn-sci{
+    display: flex;
+    align-items: center;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background: black;
+    border: 2px solid green;
+    border-radius: 40px;
+    box-shadow: 0 0 10px green;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    transition: .5s;
+}
+.btn:hover{
+    background: transparent;
+    color: green;
+    box-shadow: none;
+}
+.home-info .btn-sci .sci{
+    margin-left: 20px;
+}
+.home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid green;
+    border-radius: 50%;
+    font-size: 20px;
+    color: green;
+    margin: 0 8px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+.home-info .btn-sci .sci a:hover {
+    color: white; /* Change text/icon color */
+    background-color: black; /* Optional: add a green background */
+}
+
+.project{
+    position: relative; /* Establish a context for positioning child elements */
+    padding-top: 50px; /* Add space above the title */
+    text-align: center; /* Center-align all text in this section */
+}
+.project .section-title {
+    position: absolute; /* Position the title relative to the .project section */
+    top: 0; /* Place it at the top of the section */
+    left: 50%; /* Horizontally align the title */
+    transform: translateX(-50%); /* Correct offset due to absolute positioning */
+    text-align: center; /* Center-align the text */
+    margin: 0; /* Remove default margin */
+}
+
+.project .section-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0; /* Remove unwanted vertical spacing */
+}
+
+.card-container {
+    display: flex;
+    height: 80vh;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background: black;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.card-image img,
+.card-image video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-bottom: 2px solid black;
+}
+
+.card-title {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    background: rgb(48, 48, 48);
+    color: white;
+    text-transform: uppercase;
+    position: relative; /* Needed for the pseudo-element */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+    border-radius: 5px; /* Matches the pseudo-element */
+    overflow: hidden; /* Ensures the pseudo-element stays within the card */
+}
