@@ -6,15 +6,23 @@
 
 body{
     min-height: 100vh;
-    background: #141414;
+    background: #292b4a;
     color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
+
+
+
+
 nav{    /*nav bar*/
-    background-color: black;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    background-color: #1f203a;
     height: 50px;
+    width: 100%; /* Ensure it spans the full width */
+    position: fixed; /* Fix it to the screen */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align it to the left */
+    z-index: 1000; /* Ensure it stays above other elements */
 }
 
 nav ul{     /*container*/
@@ -36,15 +44,21 @@ nav a{      /*anchor text*/
     display: flex;
     align-items: center;
     color: rgb(255, 255, 255);
+    transition: color 0.3s ease-in-out;
 }
 
 nav a:hover{    /*visualfeedback*/
-    background-color: #141414;
+    background-color: transparent;
+    color: rgb(241, 241, 66);
 }
 
 nav li:first-child{     /*first logo on the left*/
     margin-right: auto;
 }
+
+
+
+
 
 .sidebar{
     position: fixed;
@@ -53,7 +67,7 @@ nav li:first-child{     /*first logo on the left*/
     height: 100vh;
     width: 200px;
     z-index: 999;
-    background-color: black; /*blur*/
+    background-color: #1f203a; /*blur*/
     backdrop-filter: blue(30px);
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     display: none;
@@ -70,8 +84,7 @@ nav li:first-child{     /*first logo on the left*/
     width: 100%;
 }
 
-
-/* HIDE SIDEBAR ON LARGE SCREENS NOT WORKING */
+/* hide menu bar for mobile */
 .menu-button{
     display: none;
 }
@@ -90,23 +103,28 @@ nav li:first-child{     /*first logo on the left*/
     }
 }
 
+
+
+
+
 section {
     width: 100%;
     padding: 0;
     margin: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 5 s cubic-bezier(0.68, -0.55, 0.27, 1.55);;
 }
 
 #canvas1{
     position: absolute;
     top: 0; left:0;
     height: 100%; width: 100%; 
-    background: radial-gradient(green, yellow);
+    /* background: radial-gradient(rgb(7, 1, 130), rgb(104, 4, 191)); */
     z-index: -1;
 }
 .home{
     display: flex;
     align-items: center;
+    gap: 50px;
     height: 100vh;
     padding: 60px 9% 0;
     color: white;
@@ -118,6 +136,40 @@ section {
 .home-info h2{
     font-size: 32px;
     margin-top: -10px;
+    display: inline-block;
+    white-space: nowrap; /* Ensures the words don’t break into multiple lines */
+    overflow: hidden; /* Hides the overflow of text */
+}
+.home-info h2 span{
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px rgb(241, 241, 66);
+    animation: display-text 10s linear infinite;
+    animation-delay: calc(-5s * var(--i));
+}
+@keyframes display-text{
+    25%,100%{
+        display: none;
+    }
+}
+.home-info h2 span::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid rgb(241, 241, 66);
+    color: rgb(241, 241, 66);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 2.5s linear infinite;
+}
+@keyframes fill-text{
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
 }
 .home-info p{
     font-size: 16px;
@@ -130,18 +182,21 @@ section {
 .btn{
     display: inline-block;
     padding: 10px 30px;
-    background: black;
-    border: 2px solid green;
+    background: rgb(241, 241, 66);
+    border: 2px solid rgb(241, 241, 66);
     border-radius: 40px;
-    box-shadow: 0 0 10px green;
+    /* box-shadow: 0 0 5px rgb(241, 241, 66); */
     font-size: 16px;
-    color: white;
+    color: #2d3052;
     font-weight: 600;
     transition: .5s;
 }
+.btn-sci .btn{
+    text-decoration: none;
+}
 .btn:hover{
     background: transparent;
-    color: green;
+    color: rgb(241, 241, 66);
     box-shadow: none;
 }
 .home-info .btn-sci .sci{
@@ -150,94 +205,137 @@ section {
 .home-info .btn-sci .sci a {
     display: inline-flex;
     padding: 8px;
-    border: 2px solid green;
+    border: 2px solid rgb(241, 241, 66);
     border-radius: 50%;
     font-size: 20px;
-    color: green;
+    color: rgb(241, 241, 66);
     margin: 0 8px;
     transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
 .home-info .btn-sci .sci a:hover {
-    color: white; /* Change text/icon color */
-    background-color: black; /* Optional: add a green background */
+    /* box-shadow: 0 0 5px rgb(241, 241, 66);Add a glowing shadow */
+    transform: translateY(-3px); /* Move the button upwards to simulate levitation */
+    transition: all 0.3s ease-in-out; /* Smooth transition for both shadow and movement */
 }
 
-.project{
-    position: relative; /* Establish a context for positioning child elements */
-    padding-top: 50px; /* Add space above the title */
-    text-align: center; /* Center-align all text in this section */
-}
-.project .section-title {
-    position: absolute; /* Position the title relative to the .project section */
-    top: 0; /* Place it at the top of the section */
-    left: 50%; /* Horizontally align the title */
-    transform: translateX(-50%); /* Correct offset due to absolute positioning */
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin */
+
+
+
+
+.about {
+    background-color: #1f203a;
+    padding: 60px 9%;
+    color: #333;
+    text-align: center;
 }
 
-.project .section-title h2 {
+.about h2 {
     font-size: 36px;
-    font-weight: bold;
+    color: rgb(241, 241, 66);
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0; /* Remove unwanted vertical spacing */
 }
 
-.card-container {
-    display: flex;
-    height: 80vh;
-    gap: 60px;
-    justify-content: center;
-    align-items: center;
+.about-info {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.card {
-    width: 300px;
-    height: 400px;
-    background: black;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+
+
+
+
+/* Projects Section */
+.projects {
+    background-color: #292b4a;
+    padding: 60px 9%;
+    text-align: center;
+}
+
+.projects-info h2 {
+    font-size: 36px;
+    color: rgb(241, 241, 66);
+    margin-bottom: 20px;
+}
+
+.projects-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+}
+
+/* Carousel */
+.carousel {
     position: relative;
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-}
-
-.card-image {
-    width: 100%;
-    height: 80%;
     overflow: hidden;
-}
-
-.card-image img,
-.card-image video {
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    border-bottom: 2px solid black;
+    max-width: 900px;
+    margin: 30px auto;
 }
 
-.card-title {
-    height: 20%;
+.carousel-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-weight: bold;
-    background: rgb(48, 48, 48);
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out, transform 5s ease-in-out;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item .project-description {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
     color: white;
-    text-transform: uppercase;
-    position: relative; /* Needed for the pseudo-element */
-    z-index: 1; /* Ensure content is above the pseudo-element */
-    border-radius: 5px; /* Matches the pseudo-element */
-    overflow: hidden; /* Ensures the pseudo-element stays within the card */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Levitating effect */
+.carousel-item img:active {
+    transform: scale(1.2);
+    transition: transform 1s ease-out;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.2);
+}
+
+/* Make images "levitate" on screen */
+.carousel-item img.levitate {
+    animation: levitate 5s ease-in-out forwards;
+}
+
+/* Animation for levitating effect */
+@keyframes levitate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
