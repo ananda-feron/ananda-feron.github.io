@@ -16,7 +16,7 @@ body{
 
 
 nav{    /*nav bar*/
-    background-color: #1f203a;
+    background-color: rgba(31, 32, 58, 0.8); /* Adding transparency */
     height: 50px;
     width: 100%; /* Ensure it spans the full width */
     position: fixed; /* Fix it to the screen */
@@ -49,7 +49,7 @@ nav a{      /*anchor text*/
 
 nav a:hover{    /*visualfeedback*/
     background-color: transparent;
-    color: rgb(241, 241, 66);
+    color: rgb(219, 219, 87);
 }
 
 nav li:first-child{     /*first logo on the left*/
@@ -144,7 +144,7 @@ section {
     position: relative;
     display: inline-block;
     color: transparent;
-    -webkit-text-stroke: .7px rgb(241, 241, 66);
+    -webkit-text-stroke: .7px rgb(219, 219, 87);
     animation: display-text 10s linear infinite;
     animation-delay: calc(-5s * var(--i));
 }
@@ -157,8 +157,8 @@ section {
     content: attr(data-text);
     position: absolute;
     width: 0;
-    border-right: 2px solid rgb(241, 241, 66);
-    color: rgb(241, 241, 66);
+    border-right: 2px solid rgb(219, 219, 87);
+    color: rgb(219, 219, 87);
     white-space: nowrap;
     overflow: hidden;
     animation: fill-text 2.5s linear infinite;
@@ -182,8 +182,8 @@ section {
 .btn{
     display: inline-block;
     padding: 10px 30px;
-    background: rgb(241, 241, 66);
-    border: 2px solid rgb(241, 241, 66);
+    background: rgb(219, 219, 87);
+    border: 2px solid rgb(219, 219, 87);
     border-radius: 40px;
     /* box-shadow: 0 0 5px rgb(241, 241, 66); */
     font-size: 16px;
@@ -196,7 +196,7 @@ section {
 }
 .btn:hover{
     background: transparent;
-    color: rgb(241, 241, 66);
+    color: rgb(219, 219, 87);
     box-shadow: none;
 }
 .home-info .btn-sci .sci{
@@ -205,11 +205,12 @@ section {
 .home-info .btn-sci .sci a {
     display: inline-flex;
     padding: 8px;
-    border: 2px solid rgb(241, 241, 66);
+    border: 2px solid rgb(219, 219, 87);
     border-radius: 50%;
     font-size: 20px;
-    color: rgb(241, 241, 66);
+    color: rgb(219, 219, 87);
     margin: 0 8px;
+    text-decoration: none; /* Removes underline */
     transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
 .home-info .btn-sci .sci a:hover {
@@ -222,46 +223,16 @@ section {
 
 
 
-.about {
-    background-color: #1f203a;
-    padding: 60px 9%;
-    color: #333;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 36px;
-    color: rgb(241, 241, 66);
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    color: white;
-}
-
-.about-info {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-
-
-
-
 /* Projects Section */
 .projects {
-    background-color: #292b4a;
+    background-color: #1f203a;
     padding: 60px 9%;
     text-align: center;
 }
 
 .projects-info h2 {
     font-size: 36px;
-    color: rgb(241, 241, 66);
+    color: rgb(219, 219, 87);
     margin-bottom: 20px;
 }
 
@@ -338,4 +309,130 @@ section {
     100% {
         transform: scale(1);
     }
+}
+
+
+
+
+
+.about {
+    background-color: #292b4a;
+    padding: 60px 9%;
+    color: #333;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    color: rgb(219, 219, 87);
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+}
+
+.about-info {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+
+
+
+.contact {
+    padding: 50px;
+    text-align: center;
+    background-color: #1f203a;
+    color: white;
+}
+
+.contact-info h2 {
+    font-size: 36px;
+    color: rgb(219, 219, 87);
+    margin-bottom: 40px; /* Increased space between "Contact Me" and the input boxes */
+}
+
+.contact-info p {
+    margin-bottom: 20px; /* Increased space between "Contact Me" and the input boxes */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px; /* Slightly more space between Name and Email fields */
+    justify-content: center;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white; /* Ensure the boxes aren't red */
+    color: black;
+}
+
+.input-row input, 
+textarea {
+    font-family: inherit; /* Ensures it uses the same font as the rest of the form */
+    font-size: 16px; /* Matches the input fields */
+}
+
+textarea {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Ensures it matches the input fields */
+    font-family: inherit; /* Ensures consistency */
+    resize: vertical;
+    background-color: white;
+    color: black;
+}
+
+/* Adjusted Button Styling */
+.msg-btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #292b4a;
+    border: 2px solid rgb(219, 219, 87);
+    color: rgb(219, 219, 87);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.msg-btn:hover {
+    background-color: rgb(219, 219, 87);
+    color: #292b4a;
+    border: 2px solid rgb(219, 219, 87);
+}
+
+/* Social Media Icons */
+.msg-sci {
+    margin-top: 25px;
+}
+
+.msg-sci a {
+    font-size: 24px;
+    color: white;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.msg-sci a:hover {
+    color: rgb(219, 219, 87);
 }
