@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Financial insights project</title>
+  <desc id="desc">A stylized finance project thumbnail with market charts and ledger cards.</desc>
+  <rect width="960" height="560" fill="#1f203a"/>
+  <circle cx="760" cy="150" r="95" fill="#dbdb57" opacity="0.95"/>
+  <rect x="90" y="80" width="510" height="390" rx="18" fill="#292b4a" stroke="#dbdb57" stroke-width="4"/>
+  <rect x="640" y="250" width="230" height="170" rx="16" fill="#292b4a" stroke="#ffffff" stroke-width="3" opacity="0.95"/>
+  <path d="M145 360 C225 270 305 330 385 230 S515 200 550 145" fill="none" stroke="#dbdb57" stroke-width="14" stroke-linecap="round"/>
+  <g fill="#ffffff">
+    <rect x="140" y="130" width="175" height="22" rx="11"/>
+    <rect x="140" y="175" width="315" height="14" rx="7" opacity="0.75"/>
+    <rect x="140" y="205" width="250" height="14" rx="7" opacity="0.55"/>
+    <rect x="675" y="290" width="160" height="16" rx="8"/>
+    <rect x="675" y="330" width="120" height="16" rx="8" opacity="0.7"/>
+    <rect x="675" y="370" width="145" height="16" rx="8" opacity="0.55"/>
+  </g>
+  <text x="720" y="185" fill="#1f203a" font-family="Arial, sans-serif" font-size="118" font-weight="700">$</text>
+</svg>

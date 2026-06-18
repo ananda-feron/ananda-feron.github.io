@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Technology workflow project</title>
+  <desc id="desc">A stylized technology project thumbnail with connected workflow nodes.</desc>
+  <rect width="960" height="560" fill="#292b4a"/>
+  <rect x="105" y="95" width="750" height="370" rx="22" fill="#1f203a" stroke="#dbdb57" stroke-width="4"/>
+  <g stroke="#dbdb57" stroke-width="8" stroke-linecap="round">
+    <path d="M260 280 H430"/>
+    <path d="M535 280 H700"/>
+    <path d="M480 185 V245"/>
+    <path d="M480 315 V380"/>
+  </g>
+  <g fill="#32355c" stroke="#ffffff" stroke-width="4">
+    <rect x="155" y="225" width="140" height="110" rx="16"/>
+    <rect x="410" y="225" width="140" height="110" rx="16"/>
+    <rect x="665" y="225" width="140" height="110" rx="16"/>
+    <rect x="400" y="105" width="160" height="80" rx="16"/>
+    <rect x="400" y="380" width="160" height="80" rx="16"/>
+  </g>
+  <g fill="#dbdb57">
+    <circle cx="225" cy="280" r="18"/>
+    <circle cx="480" cy="280" r="18"/>
+    <circle cx="735" cy="280" r="18"/>
+    <circle cx="480" cy="145" r="16"/>
+    <circle cx="480" cy="420" r="16"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <rect x="185" y="305" width="80" height="10" rx="5"/>
+    <rect x="440" y="305" width="80" height="10" rx="5"/>
+    <rect x="695" y="305" width="80" height="10" rx="5"/>
+  </g>
+</svg>
